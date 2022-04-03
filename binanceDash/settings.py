@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -81,7 +81,18 @@ DATABASES = {
     }
 }
 
-
+# Changing Database engine to Postgres
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db.name',
+        'USER': 'username',
+        'PASSWORD': 'password'
+        'HOST': 'localhost'
+    }
+}
+"""
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -115,14 +126,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
+STATIC_URL = 'static/'
+STATIC_ROOT = 'static'
+STATICFILES_DIRS = [
+    BASE_DIR/ "binanceDash/static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
-STATICFILES_LOCATION = 'static'
-STATIC_URL = 'static/'
-STATIC_ROOT = 'static'
-STATICFILES_DIR = BASE_DIR/ 'binanceDash/static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
